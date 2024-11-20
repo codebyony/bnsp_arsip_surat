@@ -1,0 +1,49 @@
+Kelurahan : Desa Karangduren, Kecamatan Pakisaji
+Apk : Aplikasi Arsip Surat-Surat Resmi
+Tujuan : Menyimpan dan menampilkan kembali surat-surat resmi yang dientrikan dalam bentuk PDF
+
+Alur :
+1. Perangkat desa scan dalam format PDF
+2. Upload file hasil scan ke sistem
+3. Membuka Aplikasi, lalu melakukan pencarian berdasarkan judul surat
+4. Apabila ditemukan, petugas dapat mengunduh file tersebut
+
+Halaman:
+1. Halaman Arsip : berisi surat-surat
+    - Search Bar     : Tampilkan judul yang mengandung kata yang dicari 
+    - Arsipkan Surat : Poin nomor 2
+    - Hapus          : Poin nomor 3
+    - Unduh          : Simpan ke direktori tertentu sesuai pilihan pengguna
+    - Lihat >>       : Poin nomor 4
+    - About          : Poin nomor 5
+2. Halaman input data surat : data yaitu nomor surat, kategori, judul, file surat
+    - Kategori surat : Undangan, Pengumuman, Nota Dinas, Pemberitahuan
+    - File yang di-upload harus PDF
+    - Kembali : Kembali ke nomor 1
+    - Simpan : Ditambahkan data baru di database (harus memunculkan pesan "Data berhasil disimpan")
+3. Button hapus di klik
+    - Alert : Apakah Anda yakin ingin menghapus arsip surat ini? Batal, Ya!
+    - Jika Ya!, data dihilangkan di tampilan maupun database
+    - Batal, peringatan dihilangkan, tidak terjadi apa-apa
+4. Button lihat >> di klik
+    - Kembali << kembali ke halaman utama
+    - Unduh di klik, maka file PDF disimpan ke direktori tertentu yang diinginkan pengguna
+5. Kategori surat harus bisa ditambahkan dan di edit melalui menu "Kategori Surat", dilengkapi tombol tambah, edit, hapus
+
+Garis besar :
+1. Arsip    : 3 halaman
+2. Kategori : 2 halaman
+3. About    : 1 halaman
+4. Layout   : 1 halaman
+
+Tabel :
+1. Arsip : 
+    - nomor_surat (PK) : String
+    - judul            : String   
+    - waktu_pengarsipan: DateTime
+    - file_surat       : String
+    - id_kategori (FK) : int Auto Increment
+2. Kriteria : 
+    - id_kategori (PK) : int Auto Increment
+    - nama_kategori    : String
+    - Keterangan       : String
